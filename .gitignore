@@ -14,3 +14,17 @@ build/
 
 # Environment
 .env
+
+# Temporary files
+tmp/
+*.jpg
+*.jpeg
+*.png
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+!Frontend/ads_frontend/src/assets/*.jpeg
+!Frontend/ads_frontend/src/assets/*.jpg
