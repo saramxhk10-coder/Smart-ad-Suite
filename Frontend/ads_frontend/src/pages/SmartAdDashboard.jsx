@@ -446,7 +446,7 @@ export default function SmartAdDashboard() {
               <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
                 <Link to="/dashboard/meta"
                   className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-white transition-all duration-300 hover:scale-105"
-                  style={{ background:"linear-gradient(135deg,#7c3aed,#4f46e5)", boxShadow:"0 8px 32px rgba(124,58,237,0.4)" }}>
+                  style={{ background:"linear-gradient(135deg,#7c3aed,#4f46e5)", boxShadow:"0 8px 32px rgba(124,58,237,0.4)" ,color:"white"}}>
                   <Zap size={16} /> Get Started
                 </Link>
                 <button className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold border transition-all duration-300 hover:scale-105 hover:border-purple-400"
@@ -674,13 +674,25 @@ export default function SmartAdDashboard() {
             <div className="flex flex-wrap justify-center gap-4 mt-8 mb-10">
               <Link to="/dashboard/meta"
                 className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white transition-all duration-300 hover:scale-105"
-                style={{ background:"linear-gradient(135deg,#7c3aed,#4f46e5)", boxShadow:"0 8px 40px rgba(124,58,237,0.4)" }}>
+                style={{ background:"linear-gradient(135deg,#7c3aed,#4f46e5)", boxShadow:"0 8px 40px rgba(124,58,237,0.4)" , color:"white"}}>
                 <Zap size={18} /> Start a Campaign
               </Link>
-              <button className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold border transition-all duration-300 hover:scale-105 hover:border-purple-400"
-                style={{ border:"1px solid rgba(255,255,255,0.15)", color:"#e2e8f0", background:"rgba(255,255,255,0.03)" }}>
-                <Code2 size={18} /> GitHub Repository <ArrowRight size={16} />
-              </button>
+          
+                    <a
+                      href="https://github.com/saramxhk10-coder/Smart-ad-Suite.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold border transition-all duration-300 hover:scale-105 hover:border-purple-400"
+                      style={{
+                        border: "1px solid rgba(255,255,255,0.15)",
+                        color: "#e2e8f0",
+                        background: "rgba(255,255,255,0.03)",
+                      }}
+                    >
+                      <Code2 size={18} />
+                      GitHub Repository
+                      <ArrowRight size={16} />
+                    </a>
             </div>
             <p className="text-gray-500 text-sm">Final Year Project · Department of Computer Science · The University of Faisalabad</p>
             <p className="text-gray-600 text-xs mt-2">© 2025–2026 Muhammad Saram · Samavia Irfan · Aroosha Chaudhary · All rights reserved.</p>
