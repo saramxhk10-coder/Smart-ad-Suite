@@ -25,7 +25,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://sarim001-backend.hf.space/",
+  baseURL: "http://localhost:8000/",
 });
 
 // Signup using FormData

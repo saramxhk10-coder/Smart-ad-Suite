@@ -19,7 +19,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://sarim001-backend.hf.space",
+  baseURL: "http://localhost:8000",
 });
 
 api.interceptors.request.use((config) => {
