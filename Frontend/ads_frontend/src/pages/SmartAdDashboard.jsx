@@ -69,7 +69,7 @@ function Sidebar({ user, onLogout }) {
   const isHome   = location.pathname === "/dashboard" || location.pathname === "/dashboard/home";
 
   return (
-    <div className="w-72 bg-[#0a0a0f] border-r border-[#1e1e2d] text-[#e8e8ec] min-h-screen flex flex-col relative overflow-hidden flex-shrink-0">
+    <div className="w-72 bg-[#0a0a0f] border-r border-[#1e1e2d] text-[#e8e8ec] min-h-screen flex flex-col relative overflow-hidden flex-shrink-0 hidden lg:flex lg:w-72 xl:w-80">
       <div className="absolute inset-0 bg-gradient-to-b from-[#C9BEFF]/5 via-transparent to-transparent pointer-events-none" />
 
       {/* Brand */}
@@ -269,8 +269,8 @@ function TeamCard({ photo, name, role, bio, reg }) {
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
         style={{ background: "radial-gradient(circle at 50% 0%, rgba(124,58,237,0.12), transparent 70%)" }} />
       <div className="relative z-10">
-        <div className="relative mx-auto mb-5 w-28 h-28">
-          <img src={photo} alt={name} className="w-28 h-28 rounded-full object-cover object-top relative z-10"
+        <div className="relative mx-auto mb-5 w-24 h-24 sm:w-28 sm:h-28">
+          <img src={photo} alt={name} className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top relative z-10"
             style={{ border: "2px solid rgba(124,58,237,0.4)" }} />
         </div>
         <div className="text-center mb-4">
@@ -402,11 +402,21 @@ export default function SmartAdDashboard() {
   ];
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-[#050510]">
-      <Sidebar user={user} onLogout={handleLogout} />
+    <div className="flex h-screen w-screen overflow-hidden bg-[#050510] relative">
+      {/* Mobile Menu Toggle */}
+      <button 
+        className="lg:hidden fixed top-4 left-4 z-50 w-10 h-10 bg-[#1e1e2d] rounded-xl flex items-center justify-center border border-[#2a2a3c] text-[#C9BEFF]"
+        onClick={() => document.querySelector('.sidebar-mobile').classList.toggle('hidden')}
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <div className="sidebar-mobile hidden fixed inset-0 z-40 lg:relative lg:block lg:z-auto"><div className="absolute inset-0 bg-black/60 lg:hidden" onClick={() => document.querySelector('.sidebar-mobile').classList.add('hidden')}></div><div className="relative z-10 h-full"><Sidebar user={user} onLogout={handleLogout} /></div></div>
 
       {/* Main scrollable content */}
-      <div className="flex-1 overflow-y-auto text-white" style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
+      <div className="flex-1 overflow-y-auto w-full lg:w-auto pt-16 lg:pt-0 text-white" style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
         <style>{`
           @keyframes float   { 0%,100%{transform:translateY(0)}  50%{transform:translateY(-18px)} }
           @keyframes glow    { 0%,100%{opacity:0.3} 50%{opacity:0.7} }
@@ -420,11 +430,11 @@ export default function SmartAdDashboard() {
         `}</style>
 
         {/* HERO */}
-        <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+        <section className="relative min-h-[80vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden pt-20 lg:pt-0">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <GlowBg color="#7c3aed" size="w-[500px] h-[500px]" pos="top-1/3 left-1/4"    delay="0s" />
-            <GlowBg color="#4f46e5" size="w-[400px] h-[400px]" pos="bottom-1/3 right-1/4" delay="2s" />
-            <GlowBg color="#06b6d4" size="w-[300px] h-[300px]" pos="top-1/4 right-1/3"   delay="1s" />
+            <GlowBg color="#7c3aed" size="w-64 h-64 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px]" pos="top-1/4 left-1/4"    delay="0s" />
+            <GlowBg color="#4f46e5" size="w-48 h-48 sm:w-72 sm:h-72 lg:w-[400px] lg:h-[400px]" pos="bottom-1/4 right-1/4" delay="2s" />
+            <GlowBg color="#06b6d4" size="w-40 h-40 sm:w-56 sm:h-56 lg:w-[300px] lg:h-[300px]" pos="top-1/4 right-1/3"   delay="1s" />
           </div>
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
@@ -433,17 +443,17 @@ export default function SmartAdDashboard() {
                 <Sparkles size={14} />
                 Final Year Project · BSAI · The University of Faisalabad
               </div>
-              <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 leading-none tracking-tight">
                 <span className="gradient-text">SMART-AD</span><br />
                 <span className="text-white">SUITE</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed px-4">
                 End-to-End AI-Powered Digital Advertising Automation
               </p>
-              <p className="text-base text-gray-500 max-w-2xl mx-auto mb-10">
+              <p className="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto mb-10 px-4">
                 A multi-agent AI system that automates the complete ad lifecycle — from image analysis and keyword generation to compliance validation and multi-platform publishing.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-14 px-4">
                 <Link to="/dashboard/meta"
                   className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-white transition-all duration-300 hover:scale-105"
                   style={{ background:"linear-gradient(135deg,#7c3aed,#4f46e5)", boxShadow:"0 8px 32px rgba(124,58,237,0.4)" ,color:"white"}}>
@@ -455,7 +465,7 @@ export default function SmartAdDashboard() {
                 </button>
               </div>
             </div>
-            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto transition-all duration-1000 delay-300 ${heroVisible?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
+            <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto px-4 transition-all duration-1000 delay-300 ${heroVisible?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
               {[
                 {label:"AI Agents", value:"8",    icon:"🤖"},
                 {label:"Platforms", value:"3",    icon:"🌐"},
@@ -474,20 +484,20 @@ export default function SmartAdDashboard() {
         </section>
 
         {/* PROBLEM */}
-        <section id="problem" className="py-24 px-6">
+        <section id="problem" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">The Challenge</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Digital Advertising <span className="gradient-text">Is Broken</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">Why Digital Advertising <span className="gradient-text">Is Broken</span></h2>
               <p className="text-gray-400 max-w-2xl mx-auto">The modern advertising ecosystem is fragmented, manual, and error-prone.</p>
             </div>
-            <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
               <StatCard icon={TrendingUp} label="Time on Manual Tasks"          value="73" suffix="%" color="#ef4444" inView={statsInView} />
               <StatCard icon={Activity}   label="Industry Ad Rejection Rate"    value="34" suffix="%" color="#f59e0b" inView={statsInView} />
               <StatCard icon={Users}      label="SMEs Needing Automation"       value="5"  suffix="M+" color="#7c3aed" inView={statsInView} />
               <StatCard icon={Target}     label="Annual Waste from Inefficiency" value="2" suffix="B+" color="#06b6d4" inView={statsInView} />
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { title:"Fragmented Workflows",   desc:"Marketers juggle 5+ disconnected tools for keyword research, content creation, compliance checking, and publishing.",  icon:"🔗" },
                 { title:"High Human Error Rate",  desc:"Manual keyword assignments, typos, and wrong targeting waste ad budgets and directly damage campaign performance.",      icon:"⚠️" },
@@ -505,40 +515,40 @@ export default function SmartAdDashboard() {
         </section>
 
         {/* SOLUTION */}
-        <section id="solution" className="py-24 px-6">
+        <section id="solution" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">The Solution</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Meet the <span className="gradient-text">AI Agent Pipeline</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">Meet the <span className="gradient-text">AI Agent Pipeline</span></h2>
               <p className="text-gray-400 max-w-2xl mx-auto">8 specialized intelligent agents work in orchestrated harmony.</p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {agents.map((a,i) => <AgentCard key={i} {...a} />)}
             </div>
           </div>
         </section>
 
         {/* FEATURES */}
-        <section id="features" className="py-24 px-6">
+        <section id="features" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">Capabilities</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Built for <span className="gradient-text">Modern Marketing</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">Built for <span className="gradient-text">Modern Marketing</span></h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {features.map((f,i) => <FeatureCard key={i} {...f} />)}
             </div>
           </div>
         </section>
 
         {/* ANALYTICS */}
-        <section id="analytics" className="py-24 px-6" ref={analyticsRef}>
+        <section id="analytics" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6" ref={analyticsRef}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">Performance Intelligence</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Smart <span className="gradient-text">Analytics Dashboard</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">Smart <span className="gradient-text">Analytics Dashboard</span></h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
               {[
                 { label:"Campaigns Launched",  value:"178",  change:"+23%",  color:"#7c3aed" },
                 { label:"Compliance Rate",      value:"98%",  change:"+4.2%", color:"#10b981" },
@@ -552,11 +562,11 @@ export default function SmartAdDashboard() {
                 </div>
               ))}
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
               <div className="md:col-span-2 rounded-2xl p-6 border border-white/10" style={{ background:"rgba(255,255,255,0.03)", backdropFilter:"blur(12px)" }}>
                 <h3 className="text-white font-bold mb-1">Campaign Growth & Compliance Rate</h3>
                 <p className="text-gray-500 text-xs mb-6">6-month performance metrics</p>
-                <ResponsiveContainer width="100%" height={220}>
+                <ResponsiveContainer width="100%" height={180} className="sm:h-[220px]">
                   <AreaChart data={performanceData}>
                     <defs>
                       <linearGradient id="campGrad" x1="0" y1="0" x2="0" y2="1">
@@ -580,7 +590,7 @@ export default function SmartAdDashboard() {
               <div className="rounded-2xl p-6 border border-white/10" style={{ background:"rgba(255,255,255,0.03)", backdropFilter:"blur(12px)" }}>
                 <h3 className="text-white font-bold mb-1">Platform Distribution</h3>
                 <p className="text-gray-500 text-xs mb-4">Ad deployment split</p>
-                <ResponsiveContainer width="100%" height={160}>
+                <ResponsiveContainer width="100%" height={140} className="sm:h-[160px]">
                   <PieChart>
                     <Pie data={platformData} cx="50%" cy="50%" innerRadius={45} outerRadius={70} paddingAngle={4} dataKey="value">
                       {platformData.map((e,i) => <Cell key={i} fill={e.color}/>)}
@@ -604,8 +614,8 @@ export default function SmartAdDashboard() {
             <div className="mt-6 rounded-2xl p-6 border border-white/10" style={{ background:"rgba(255,255,255,0.03)", backdropFilter:"blur(12px)" }}>
               <h3 className="text-white font-bold mb-1">Return on Investment (ROI) Growth</h3>
               <p className="text-gray-500 text-xs mb-6">Projected ROI improvement with Smart-AD Suite automation</p>
-              <ResponsiveContainer width="100%" height={180}>
-                <BarChart data={roiData} barSize={32}>
+              <ResponsiveContainer width="100%" height={150} className="sm:h-[180px]">
+                <BarChart data={roiData} barSize={24} className="sm:bar-size-[32px]">
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)"/>
                   <XAxis dataKey="month" tick={{ fill:"#6b7280", fontSize:11 }} axisLine={false} tickLine={false}/>
                   <YAxis tick={{ fill:"#6b7280", fontSize:11 }} axisLine={false} tickLine={false}/>
@@ -618,29 +628,29 @@ export default function SmartAdDashboard() {
         </section>
 
         {/* WORKFLOW */}
-        <section className="py-24 px-6">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">How It Works</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">System <span className="gradient-text">Workflow</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">System <span className="gradient-text">Workflow</span></h2>
               <p className="text-gray-400 max-w-2xl mx-auto">From product image to live campaign — a fully automated 6-step pipeline.</p>
             </div>
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto px-2 sm:px-0">
               {workflowSteps.map((s,i) => <WorkflowStep key={i} {...s} />)}
             </div>
           </div>
         </section>
 
         {/* TEAM */}
-        <section id="team" className="py-24 px-6">
+        <section id="team" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">The Builders</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Meet the <span className="gradient-text">Team</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">Meet the <span className="gradient-text">Team</span></h2>
               <p className="text-gray-400">BSAI · Class of 2026 · The University of Faisalabad</p>
               <p className="text-gray-500 text-sm mt-1">Supervised by <span className="text-purple-400 font-medium">Mr. Samraiz Zahid</span></p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               <TeamCard photo={SAMAVIA_PHOTO} name="Samavia Irfan"     role="AI Engineer"          reg="BSAI-FA22-032" bio="Specializes in NLP and ad content generation — leading the Keyword Agent and Ad Writer Agent development." />
               <TeamCard photo={SARAM_PHOTO}   name="Muhammad Saram"    role="Full Stack Developer" reg="BSAI-FA22-029" bio="Architected the MERN stack backend, agent orchestration layer and the multi-platform publishing integrations." />
               <TeamCard photo={ROOSHY_PHOTO}  name="Aroosha Chaudhary" role="Computer Vision Lead" reg="BSAI-FA22-019" bio="Developed the Vision Agent using Computer Vision and the Compliance Agent for real-time policy validation." />
@@ -649,29 +659,29 @@ export default function SmartAdDashboard() {
         </section>
 
         {/* TECH STACK */}
-        <section className="py-24 px-6">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest text-purple-400 uppercase mb-3 block">Built With</span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Technology <span className="gradient-text">Stack</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">Technology <span className="gradient-text">Stack</span></h2>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 px-4">
               {techStack.map((t,i) => <TechBadge key={i} {...t} />)}
             </div>
           </div>
         </section>
 
         {/* FOOTER */}
-        <section className="py-16 px-6 border-t border-white/5">
+        <section className="py-16 px-4 sm:px-6 border-t border-white/5">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 mb-6 px-5 py-2.5 rounded-full text-sm text-purple-300"
               style={{ background:"rgba(124,58,237,0.12)", border:"1px solid rgba(124,58,237,0.3)" }}>
               <Award size={14} /> Enterprise-Grade AI Advertising Automation
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4">
               The Future of Advertising <span className="gradient-text">Is Autonomous</span>
             </h2>
-            <div className="flex flex-wrap justify-center gap-4 mt-8 mb-10">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8 mb-10 px-4">
               <Link to="/dashboard/meta"
                 className="flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white transition-all duration-300 hover:scale-105"
                 style={{ background:"linear-gradient(135deg,#7c3aed,#4f46e5)", boxShadow:"0 8px 40px rgba(124,58,237,0.4)" , color:"white"}}>

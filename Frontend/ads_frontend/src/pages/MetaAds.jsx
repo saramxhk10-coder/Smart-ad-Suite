@@ -108,13 +108,13 @@ export default function MetaAds() {
 
   return (
     <div className="text-[#e8e8ec]">
-      <h2 className="text-2xl font-bold mb-6 text-white tracking-tight">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white tracking-tight">
         Create Meta Ads Campaign
       </h2>
 
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-2 gap-5 mb-8"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8"
       >
         {[
           ["account_id", "Account ID"],
@@ -130,7 +130,7 @@ export default function MetaAds() {
               name={name}
               placeholder={label}
               onChange={handleChange}
-              className={`p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
+              className={`p-3 sm:p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
                 errors[name] ? "border-red-500/50 bg-red-500/10" : "border-[#2a2a3c]"
               }`}
             />
@@ -147,7 +147,7 @@ export default function MetaAds() {
             type="number"
             placeholder="Budget"
             onChange={handleChange}
-            className={`p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
+            className={`p-3 sm:p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
               errors.budget ? "border-red-500/50 bg-red-500/10" : "border-[#2a2a3c]"
             }`}
           />
@@ -165,7 +165,7 @@ export default function MetaAds() {
             name="start_time"
             type="date"
             onChange={handleChange}
-            className={`p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
+            className={`p-3 sm:p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
               errors.start_time ? "border-red-500/50 bg-red-500/10" : "border-[#2a2a3c]"
             }`}
           />
@@ -183,7 +183,7 @@ export default function MetaAds() {
             name="end_time"
             type="date"
             onChange={handleChange}
-            className={`p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
+            className={`p-3 sm:p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-white focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300 ${
               errors.end_time ? "border-red-500/50 bg-red-500/10" : "border-[#2a2a3c]"
             }`}
           />
@@ -201,7 +201,7 @@ export default function MetaAds() {
             name="file"
             type="file"
             onChange={handleChange}
-            className={`p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-[#6b6b80] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-[#2a2a3c] file:text-[#C9BEFF] hover:file:bg-[#3a3a4c] transition-all duration-300 ${
+            className={`p-3 sm:p-3.5 bg-[#0a0a0f]/50 border rounded-xl w-full text-[#6b6b80] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-[#2a2a3c] file:text-[#C9BEFF] hover:file:bg-[#3a3a4c] transition-all duration-300 ${
               errors.file ? "border-red-500/50 bg-red-500/10" : "border-[#2a2a3c]"
             }`}
           />
@@ -213,7 +213,7 @@ export default function MetaAds() {
         <button
           type="submit"
           disabled={loading}
-          className="col-span-2 bg-gradient-to-r from-[#C9BEFF] to-[#a89fe8] hover:from-[#b8acfe] hover:to-[#978de0] text-[#0a0a0f] font-bold py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(201,190,255,0.3)] hover:shadow-[0_0_30px_rgba(201,190,255,0.5)] hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
+          className="col-span-1 sm:col-span-2 bg-gradient-to-r from-[#C9BEFF] to-[#a89fe8] hover:from-[#b8acfe] hover:to-[#978de0] text-[#0a0a0f] font-bold py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(201,190,255,0.3)] hover:shadow-[0_0_30px_rgba(201,190,255,0.5)] hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
@@ -232,7 +232,7 @@ export default function MetaAds() {
       {/* -------------------- RESULT -------------------- */}
 
       {result && (
-        <div className="bg-[#12121a]/80 backdrop-blur-md border border-[#1e1e2d] shadow-[0_0_40px_rgba(201,190,255,0.05)] p-6 rounded-2xl">
+        <div className="bg-[#12121a]/80 backdrop-blur-md border border-[#1e1e2d] shadow-[0_0_40px_rgba(201,190,255,0.05)] p-4 sm:p-6 rounded-xl sm:rounded-2xl">
           <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
             Result:
             <span
@@ -247,7 +247,7 @@ export default function MetaAds() {
           </h3>
 
           {result.error && (
-            <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl mb-4">
+            <div className="p-3 sm:p-4 bg-red-500/10 border border-red-500/30 rounded-xl mb-4">
               <p className="text-red-400 flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -258,7 +258,7 @@ export default function MetaAds() {
           )}
 
           {result.ads_preview && (
-            <div className="p-4 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl mb-4">
+            <div className="p-3 sm:p-4 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl mb-4">
               <p className="text-[#6b6b80] text-sm mb-1">Ad Preview</p>
               <p className="text-white font-medium mb-2">
                 <span className="text-[#C9BEFF]">Headline:</span> {result.ads_preview.headline}
@@ -289,9 +289,9 @@ export default function MetaAds() {
           )}
 
           {result.quality && (
-            <div className="p-4 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl">
+            <div className="p-3 sm:p-4 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl">
               <p className="text-[#6b6b80] text-sm mb-3 font-medium">Quality Score</p>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4">
                 <div className="relative w-20 h-20">
                   <svg className="w-20 h-20 transform -rotate-90">
                     <circle

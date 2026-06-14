@@ -96,16 +96,16 @@ export default function GoogleAds() {
 
   return (
     <div className="text-[#e8e8ec]">
-      <h2 className="text-2xl font-bold mb-6 text-white tracking-tight">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white tracking-tight">
         Create Google Ads Campaign
       </h2>
 
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-2 gap-5 mb-8"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8"
       >
         {/* API Credentials Section */}
-        <div className="col-span-2 mb-2">
+        <div className="col-span-1 sm:col-span-2 mb-2">
           <p className="text-sm font-medium text-[#6b6b80] uppercase tracking-wider mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
@@ -118,29 +118,29 @@ export default function GoogleAds() {
           name="developer_token"
           placeholder="Developer Token"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
         <input
           name="client_id"
           placeholder="Client ID"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
         <input
           name="client_secret"
           placeholder="Client Secret"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
         <input
           name="refresh_token"
           placeholder="Refresh Token"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
 
         {/* Account Info Section */}
-        <div className="col-span-2 mt-4 mb-2">
+        <div className="col-span-1 sm:col-span-2 mt-4 mb-2">
           <p className="text-sm font-medium text-[#6b6b80] uppercase tracking-wider mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -153,17 +153,17 @@ export default function GoogleAds() {
           name="customer_id"
           placeholder="Customer ID"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
         <input
           name="login_customer_id"
           placeholder="Login Customer ID (Optional)"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
 
         {/* Campaign Details Section */}
-        <div className="col-span-2 mt-4 mb-2">
+        <div className="col-span-1 sm:col-span-2 mt-4 mb-2">
           <p className="text-sm font-medium text-[#6b6b80] uppercase tracking-wider mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
@@ -176,31 +176,31 @@ export default function GoogleAds() {
           name="campaign_name"
           placeholder="Campaign Name"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
         <input
           name="budget_micros"
           type="number"
           placeholder="Budget (micros)"
           onChange={handleChange}
-          className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
 
         <input
           name="landing_url"
           placeholder="Landing URL"
           onChange={handleChange}
-          className="col-span-2 p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="col-span-1 sm:col-span-2 p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
         <input
           name="target_region"
           placeholder="Target Region (US, PK)"
           onChange={handleChange}
-          className="col-span-2 p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
+          className="col-span-1 sm:col-span-2 p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl text-white placeholder-[#4a4a60] focus:outline-none focus:ring-2 focus:ring-[#C9BEFF]/40 focus:border-[#C9BEFF]/60 transition-all duration-300"
         />
 
         {/* Start Date */}
-        <div>
+        <div className="col-span-1">
           <label className="block text-sm font-medium text-[#6b6b80] mb-2">
             Start Date
           </label>
@@ -213,7 +213,7 @@ export default function GoogleAds() {
         </div>
 
         {/* End Date */}
-        <div>
+        <div className="col-span-1">
           <label className="block text-sm font-medium text-[#6b6b80] mb-2">
             End Date
           </label>
@@ -234,14 +234,14 @@ export default function GoogleAds() {
             name="file"
             type="file"
             onChange={handleChange}
-            className="p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl w-full text-[#6b6b80] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-[#2a2a3c] file:text-[#C9BEFF] hover:file:bg-[#3a3a4c] transition-all duration-300"
+            className="p-3 sm:p-3.5 bg-[#0a0a0f]/50 border border-[#2a2a3c] rounded-xl w-full text-[#6b6b80] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-[#2a2a3c] file:text-[#C9BEFF] hover:file:bg-[#3a3a4c] transition-all duration-300"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="col-span-2 bg-gradient-to-r from-[#C9BEFF] to-[#a89fe8] hover:from-[#b8acfe] hover:to-[#978de0] text-[#0a0a0f] font-bold py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(201,190,255,0.3)] hover:shadow-[0_0_30px_rgba(201,190,255,0.5)] hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed mt-4"
+          className="col-span-1 sm:col-span-2 bg-gradient-to-r from-[#C9BEFF] to-[#a89fe8] hover:from-[#b8acfe] hover:to-[#978de0] text-[#0a0a0f] font-bold py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(201,190,255,0.3)] hover:shadow-[0_0_30px_rgba(201,190,255,0.5)] hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed mt-4"
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
@@ -259,7 +259,7 @@ export default function GoogleAds() {
 
       {/* RESULT */}
       {result && (
-        <div className="bg-[#12121a]/80 backdrop-blur-md border border-[#1e1e2d] shadow-[0_0_40px_rgba(201,190,255,0.05)] p-6 rounded-2xl">
+        <div className="bg-[#12121a]/80 backdrop-blur-md border border-[#1e1e2d] shadow-[0_0_40px_rgba(201,190,255,0.05)] p-4 sm:p-6 rounded-xl sm:rounded-2xl">
           <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
             Result:
             <span
@@ -275,7 +275,7 @@ export default function GoogleAds() {
 
           {/* ERROR MESSAGE */}
           {result.status === "failed" && (
-            <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl mb-4">
+            <div className="p-3 sm:p-4 bg-red-500/10 border border-red-500/30 rounded-xl mb-4">
               <p className="text-red-400 flex items-center gap-2 mb-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -298,7 +298,7 @@ export default function GoogleAds() {
           {/* PREVIEW */}
           {result.ads_preview && (
             <div className="space-y-4">
-              <div className="p-4 bg-[#0a0a0f]/60 border border-[#2a2a3c] rounded-xl">
+              <div className="p-3 sm:p-4 bg-[#0a0a0f]/60 border border-[#2a2a3c] rounded-xl">
                 <div className="flex items-center gap-2 mb-3">
                   <svg className="w-4 h-4 text-[#C9BEFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -315,7 +315,7 @@ export default function GoogleAds() {
               </div>
 
               {result.ads_preview.all_headlines?.length > 0 && (
-                <div className="p-4 bg-[#0a0a0f]/40 border border-[#2a2a3c] rounded-xl">
+                <div className="p-3 sm:p-4 bg-[#0a0a0f]/40 border border-[#2a2a3c] rounded-xl">
                   <p className="text-xs font-medium text-[#6b6b80] uppercase tracking-wider mb-3">All Headlines</p>
                   <ul className="space-y-2">
                     {result.ads_preview.all_headlines.map((h, i) => (
@@ -329,7 +329,7 @@ export default function GoogleAds() {
               )}
 
               {result.ads_preview.all_descriptions?.length > 0 && (
-                <div className="p-4 bg-[#0a0a0f]/40 border border-[#2a2a3c] rounded-xl">
+                <div className="p-3 sm:p-4 bg-[#0a0a0f]/40 border border-[#2a2a3c] rounded-xl">
                   <p className="text-xs font-medium text-[#6b6b80] uppercase tracking-wider mb-3">All Descriptions</p>
                   <ul className="space-y-2">
                     {result.ads_preview.all_descriptions.map((d, i) => (

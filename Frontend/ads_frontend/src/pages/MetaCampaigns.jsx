@@ -67,7 +67,7 @@ export default function MetaCampaigns() {
   ========================= */
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center h-64">
+      <div className="flex flex-col items-center justify-center h-48 sm:h-64">
         <div className="w-10 h-10 border-2 border-[#C9BEFF]/30 border-t-[#C9BEFF] rounded-full animate-spin mb-4"></div>
         <p className="text-[#6b6b80] text-sm animate-pulse">Loading campaigns...</p>
       </div>
@@ -76,7 +76,7 @@ export default function MetaCampaigns() {
 
   if (error) {
     return (
-      <div className="p-6 bg-red-500/10 border border-red-500/30 rounded-2xl">
+      <div className="p-4 sm:p-6 bg-red-500/10 border border-red-500/30 rounded-2xl">
         <div className="flex items-center gap-3 text-red-400">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -89,7 +89,7 @@ export default function MetaCampaigns() {
 
   if (campaigns.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-96 bg-[#12121a]/40 border border-[#2a2a3c] rounded-2xl">
+      <div className="flex flex-col items-center justify-center h-64 sm:h-96 bg-[#12121a]/40 border border-[#2a2a3c] rounded-2xl">
         <div className="w-16 h-16 bg-[#2a2a3c] rounded-full flex items-center justify-center mb-4">
           <svg className="w-8 h-8 text-[#6b6b80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -106,9 +106,9 @@ export default function MetaCampaigns() {
   ========================= */
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white tracking-tight mb-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-1">
             My Meta Campaigns
           </h2>
           <p className="text-[#6b6b80] text-sm">
@@ -122,7 +122,7 @@ export default function MetaCampaigns() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
         {campaigns.map((c, idx) => {
           const adsPreview = normalizeAdsPreview(c.ads_preview);
           const isFailed = c.meta_publish_result?.status === "failed";
@@ -130,12 +130,12 @@ export default function MetaCampaigns() {
           return (
             <div
               key={idx}
-              className="group bg-[#12121a]/80 backdrop-blur-sm rounded-2xl p-6 border border-[#1e1e2d] hover:border-[#C9BEFF]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,190,255,0.08)] hover:-translate-y-1"
+              className="group bg-[#12121a]/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#1e1e2d] hover:border-[#C9BEFF]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,190,255,0.08)] hover:-translate-y-1"
             >
               {/* Header */}
               <div className="flex justify-between items-start mb-4">
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg text-white truncate group-hover:text-[#C9BEFF] transition-colors duration-300">
+                  <h3 className="font-bold text-base sm:text-lg text-white truncate group-hover:text-[#C9BEFF] transition-colors duration-300">
                     {c.campaign_name}
                   </h3>
                   <p className="text-sm text-[#6b6b80] mt-1 flex items-center gap-2">
@@ -173,7 +173,7 @@ export default function MetaCampaigns() {
 
               {/* Ad Preview */}
               {adsPreview?.headline && adsPreview?.description && (
-                <div className="p-4 bg-[#0a0a0f]/60 rounded-xl mb-4 border border-[#2a2a3c] group-hover:border-[#3a3a4c] transition-colors duration-300">
+                <div className="p-3 sm:p-4 bg-[#0a0a0f]/60 rounded-xl mb-4 border border-[#2a2a3c] group-hover:border-[#3a3a4c] transition-colors duration-300">
                   <div className="flex items-center gap-2 mb-3">
                     <svg className="w-4 h-4 text-[#C9BEFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -192,7 +192,7 @@ export default function MetaCampaigns() {
 
               {/* Keywords */}
               {c.keywords && (
-                <div className="mb-4 p-4 bg-[#0a0a0f]/40 rounded-xl border border-[#2a2a3c]/50">
+                <div className="mb-4 p-3 sm:p-4 bg-[#0a0a0f]/40 rounded-xl border border-[#2a2a3c]/50">
                   <KeywordSection
                     title="Primary Keyword"
                     keywords={c.keywords.primary}
@@ -210,7 +210,7 @@ export default function MetaCampaigns() {
               )}
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
                 {/* Compliance */}
                 <div className="p-3 bg-[#0a0a0f]/40 rounded-xl border border-[#2a2a3c]">
                   <p className="text-xs text-[#6b6b80] uppercase tracking-wider mb-1">Compliance</p>
