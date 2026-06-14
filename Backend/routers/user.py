@@ -15,7 +15,9 @@ from auth.dependencies import get_current_user
 # ----------------- Setup -----------------
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/ads_agent_db")
-DATABASE_NAME = os.getenv("DATABASE_NAME", "ads_agent_db")
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+if not DATABASE_NAME:
+    raise ValueError("DATABASE_NAME is missing")
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
 ADMIN_PASSWORD ="password123"  # can set in .env
 

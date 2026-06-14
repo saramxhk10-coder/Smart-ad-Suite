@@ -2,8 +2,13 @@ from fastapi import Depends, HTTPException, Header
 from pymongo import MongoClient
 from auth.security import decode_access_token
 from config import MONGO_URI, DATABASE_NAME
+import certifi
 
-client = MongoClient(MONGO_URI)
+client = MongoClient(
+    MONGO_URI,
+    tlsCAFile=certifi.where()
+)
+
 db = client[DATABASE_NAME]
 user_collection = db["users"]
 
